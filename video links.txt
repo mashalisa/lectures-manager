@@ -1,0 +1,6 @@
+create an account in DockerHub - 5 minutes 
+links to go over: Docker + Github - 30 minutes
+https://www.youtube.com/watch?v=rOTqprHv1YE&ab_channel=Simplilearn ( docker )  - 16 minutes 
+https://www.youtube.com/watch?v=_dfLOzuIg2o&t=1s&ab_channel=TechSquidTV ( docker )  - 5 minutes 
+https://www.youtube.com/watch?v=T6o3Ci8Ieag&ab_channel=Simplilearn - github - 8 minmutes 
+https://www.youtube.com/watch?v=3c-iBn73dDE&t=1s&ab_channel=TechWorldwithNana
