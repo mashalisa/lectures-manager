@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  lectures-app:
+    image: gill1967/lectures-app:1.0.0
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    depends_on:
+      - mongo
+    environment:
+      # - MONGO_URI=mongodb://mongo:27017/lecturesDB
+      - MONGODB_URI=mongodb://mongo:27017/lecturesDB
+      - PORT=3000
+    ports:
+      - "3000:3000"
+   
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=lecturesDB
+    # volumes:
+    #   - mongo-data:/data/db  # Use the named volume
+
+# Define named volumes separately
+# volumes:
+#   mongo-data:  # Correctly declared under "volumes"
