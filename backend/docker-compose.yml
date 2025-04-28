@@ -1,0 +1,57 @@
+version: "3"
+
+services:
+  lectures-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mongo
+      - redis
+      - postgres
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/lecturesDB
+      - PORT=3000
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - GOOGLE_CLIENT_ID=485420904312-5iu2kte6ck8r2gbeu28sv7ng1v2kjmfd.apps.googleusercontent.com
+      - GOOGLE_CLIENT_SECRET=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
+      - SESSION_SECRET=yGOCSPX-Lzpn1IwCwzObkq
+      
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=lecturesDB
+    volumes:
+      - mongo-data:/data/db
+
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis-data:/data
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+      - POSTGRES_DB=mydb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  mongo-data:
+  redis-data:
+  postgres_data: 
+
