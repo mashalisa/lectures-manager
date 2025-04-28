@@ -3,6 +3,8 @@ const router = express.Router();
 const queries = require('../../scripts/queries');
 const { auth } = require('../../middleware/auth');
 
+console.log('test')
+
 /**
  * @swagger
  * /api/queries/session-stats:
